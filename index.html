@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        #navbar{
+            width: 80vw;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: fit-content;
+            margin: 1rem auto;
+            border: 2px solid gray;
+            background-color: black;
+        }
+        #navbar>ul{
+            width: 80%;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            height: 2rem;
+        }
+        #content>li{
+            list-style: none;
+        }
+        #content a{
+            text-decoration: none;
+            color: aqua;
+        }
+        #navbar>i{
+            color: red;
+            position: relative;
+        }
+        #navbar>i:hover{
+            cursor: pointer;
+        }
+        #dropdown>ul{
+            display: none;
+            position: absolute;
+            border: 2px solid gray;
+            top: 10px;
+            left: -800%;
+            width: max(15vw,100px);
+            height: fit-content;
+            padding: 0px;
+            border-radius: 5px;
+            background-color: rgb(226, 232, 238);
+        }
+        #dropdown>ul a{
+            font-size: 0.8rem;
+            text-decoration: none;
+            color:black;
+        }
+        #dropdown li{
+            display: block;
+            width: 100%;
+            height: 30px;
+            text-align: center;
+            padding: .2em 0em;
+        }
+        #dropdown li:hover{
+            background-color: black;
+            border: 2px solid white;
+        }
+        #dropdown li:hover a{
+         color: cyan;   
+        }
+        @media screen and (max-width: 480px){
+            #content {
+                display: none !important;
+            }
+            #dropdown>ul{
+                left: -200%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <ul id="content">
+            <il><a href="#">Home</a></il>
+            <il><a href="#">Services</a></il>
+            <il><a href="#">Pricing</a></il>
+            <il><a href="#">About Us</a></il>
+            <il><a href="#">Contact Us</a></il>
+            
+        </ul>
+        <i class="fa-solid fa-bars" onclick="openMenu()">
+            <div id="dropdown">
+                <ul id="dropbox">
+                    <li><a href="https://www.google.com/" target="_blank">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </i>
+    </div>
+    <script>
+        function openMenu(){
+            let menu=document.getElementById("dropbox");
+            if(menu.style.display=="block"){
+                menu.style.display="none";
+            }
+            else{
+                menu.style.display="block"
+            }
+        }
+    </script>
+</body>
+</html>
